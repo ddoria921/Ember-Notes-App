@@ -6,6 +6,7 @@ export default Ember.Component.extend({
 	tagName: 'ul',
 	
 	// properties
+	defaultSelection: null,
 	notes: null,
 	selection: null,
 

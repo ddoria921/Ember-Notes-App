@@ -1,7 +1,11 @@
 import Ember from 'ember';
 
 export default Ember.Component.extend({
+	// defaults
 	classNameBindings: [':note-list-item', 'isSelected:selected'],
+	tagName: 'li',
+
+	// properties
 	content: null,
 	selection: null,
 
