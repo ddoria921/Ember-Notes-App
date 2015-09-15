@@ -1,0 +1,9 @@
+{
+  "firebase": "web-notes",
+  "public": "dist",
+  "ignore": [
+    "firebase.json",
+    "**/.*",
+    "**/node_modules/**"
+  ]
+}
