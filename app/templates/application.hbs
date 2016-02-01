@@ -1,13 +1,17 @@
-<div class="grid row-1-1">	
-	<aside class="row-1-1 col-1-4">
-		{{ note-list notes=sortedNotes defaultSelection='first' selection=activeNote onSelect='refreshEditor' }}
-	</aside>
+<aside {{bind-attr class=":left-sidebar hideSidePanel:hide"}}>
+  {{note-list notes=sortedNotes defaultSelection='first' selection=activeNote onSelect='showNote' onDelete='deleteNote'}}
+</aside>
 
-	<section class="note-content row-1-1 col-3-4 ">
-		{{ note-editor refresh=refreshEditorFlag isUserTyping=isTyping value=activeNote.body options='{"buttons": ["bold", "italic"]}' }}
-		<button class="blank-button new-note" {{action 'newNote'}}>+<span class="add"></span></button>
-	</section>
-</div>
-
-{{!-- <button {{action 'save'}}>Save</button>
-<button {{action 'deleteAll'}}>Purge</button> --}}
+<section {{bind-attr class=":note-content :main-content hideSidePanel:full-screen"}}>
+  <header class="clearfix">
+    <div class="left-actions">
+      <button class="icon-button" {{action 'toggleSidePanelHidden'}}><iron-icon icon="list"></iron-icon></button>
+    </div>
+    <div class="right-actions">
+      <button class="icon-button" {{action 'createNote'}}><iron-icon icon="add"></iron-icon></button>
+    </div>
+  </header>
+  <div class="inner-content">
+    {{outlet}}
+  </div>
+</section>

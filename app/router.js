@@ -6,6 +6,8 @@ var Router = Ember.Router.extend({
 });
 
 Router.map(function() {
+	this.route('note', { path: '/:noteId' });
+	this.route('new', { path: '/new' });
 });
 
 export default Router;

@@ -1,15 +1,16 @@
-import Ember from 'ember';
+import Em from 'ember';
 
-var applicationRoute = Ember.Route.extend({
+var applicationRoute = Em.Route.extend({
 	model: function() {
 		return this.store.findAll('note');
-	},
-	setupController: function(controller, notes) {
-		this._super(controller, notes);
 	},
 	actions: {
 		feedMe: function() {
 			this.refresh();
+		},
+		showNote: function(note) {
+			this.transitionTo('note', note.get('id'));
+      this.controller.set('activeNote', note);
 		}
 	}
 });

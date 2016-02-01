@@ -1,49 +1,42 @@
-import Ember from 'ember';
+import Em from 'ember';
 
-var applicationController = Ember.Controller.extend({
-	activeNoteId: null,
-	classNames: [':app-container'],
-
-	init: function() {
-		this._super.apply(this, arguments);
-	},
-
+var applicationController = Em.Controller.extend({
 	activeNote: null,
-	refreshEditorFlag: false,
-	isTyping: false,
 
-	isTypingObserver: function() {
-		if (!this.get('isTyping')) {
-			this.send('save');
-		}
-	}.observes('isTyping'),
+  hideSidePanel: false,
 
 	// data
 	sortedNotes: function() {
-		return this.get('model').sortBy('createdAt').reverseObjects();
-	}.property('model.[]'),
+		return this.get('model').sortBy('updatedAt', 'createdAt').reverseObjects();
+	}.property('model.[]', 'model.@each.updatedAt'),
 
 	actions: {
-		newNote: function() {
-			this.store.createRecord('note', {
-				body: 'New note...',
-				createdAt: new Date()
-			});
-		},
-		save: function() {
-			if (this.get('model.isNew')) {
-				this.set('model.createdAt', new Date());
-			}
-			this.get('model').save();
-		},
-		deleteAll: function() {
-			this.get('notes').forEach(function(note) {
-				note.destroyRecord();
-			});
-		},
-		refreshEditor: function() {
-			this.set('refreshEditorFlag', true);
-		}
+    createNote: function() {
+      this.transitionToRoute('new');
+      // Em.run.next(this, ()=> {
+      //   this.set('activeNote', this.get('sortedNotes.firstObject'));
+      // });
+    },
+
+    deleteNote: function(note) {
+      this.get('model').removeObject(note);
+      if (Em.isEmpty(this.get('model'))) {
+        this.send('createNote');
+      } else {
+        this.send('showNote', this.get('model.lastObject'));
+      }
+      note.destroyRecord();
+    },
+
+		// deleteAll: function() {
+		// 	this.get('notes').forEach(function(note) {
+		// 		note.destroyRecord();
+		// 	});
+		// },
+
+    toggleSidePanelHidden: function() {
+      this.toggleProperty('hideSidePanel');
+    }
 	}
 });
 

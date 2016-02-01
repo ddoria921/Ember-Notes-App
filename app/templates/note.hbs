@@ -1,0 +1,14 @@
+{{note-editor refresh=refreshEditorFlag isUserTyping=isTyping value=model.body options=editorOptions}}
+
+{{#if isSaving}}
+	<div class="note-state"> <span>saving</span></div>
+{{/if}}
+{{#if promptDelete}}
+  <div class="confirm">
+    <p>
+      Are you sure?
+    </p>
+    <button type="button" {{action 'confirmDelete'}}>YES</button>
+    <button type="button" {{action 'cancelDelete'}}>NO</button>
+  </div>
+{{/if}}

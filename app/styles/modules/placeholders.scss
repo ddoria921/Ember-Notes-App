@@ -1,0 +1,12 @@
+%blank-button {
+	outline: none;
+	display: block;
+	cursor: pointer;
+	border: 0px;
+	padding: 0px;
+	background: transparent;
+
+  &::-moz-focus-inner {
+	  border: 0;
+	}
+}

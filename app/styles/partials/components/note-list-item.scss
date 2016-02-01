@@ -1,0 +1,49 @@
+/*
+ * note-list-item.scss
+ */
+.note-list-item {
+	height: 90px;
+	padding: 10px 15px;
+	overflow: hidden;
+	color: $text-color;
+  position: relative;
+	&.selected {
+		background: $accent-color;
+    .hover-action {
+      background-color: $accent-color;
+      box-shadow: -10px 0px 10px $accent-color;
+    }
+	}
+	.title {
+		height: 60px;
+		overflow: hidden;
+		line-height: 20px;
+	}
+  .hover-action {
+    display: none;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    right: 0;
+    background-color: $primary-color;
+    // background-color: #5E6771;
+    box-shadow: -10px 0px 10px $primary-color;
+    // -webkit-transition: width 0.15s ease-in;
+    button {
+      opacity: 0.8;
+    }
+
+    &.focus-action {
+      width: 100%;
+      display: inline-flex;
+    }
+  }
+  &:hover {
+    .hover-action {
+      display: inline-flex;
+    }
+  }
+}

@@ -1,2 +1,13 @@
 <p class="title">{{{title}}}</p>
 {{!-- <p class="title">{{{subTitle}}}</p> --}}
+
+<div {{bind-attr class=":hover-action showDeletePrompt:focus-action"}}>
+  <button {{bind-attr class=":icon-button :small showDeletePrompt:hidden"}} {{ action 'promptDelete' bubbles=false }}>
+    <iron-icon icon="delete"></iron-icon>
+  </button>
+
+  <div {{bind-attr class="confirm-action showDeletePrompt::hidden"}}>
+    <paper-button {{ action 'cancelDelete' bubbles=false }}>Cancel</paper-button>
+    <paper-button {{ action 'confirmDelete' bubbles=false }}>Delete</paper-button>
+  </div>
+</div>

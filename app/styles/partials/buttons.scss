@@ -1,0 +1,14 @@
+.icon-button {
+  @extend %blank-button;
+  iron-icon  {
+    fill: white;
+    height: 28px;
+    width: 28px;
+  }
+  &.small {
+    iron-icon  {
+      height: 20px;
+      width: 20px;
+    }
+  }
+}

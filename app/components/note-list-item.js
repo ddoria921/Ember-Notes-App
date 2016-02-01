@@ -1,6 +1,6 @@
-import Ember from 'ember';
+import Em from 'ember';
 
-export default Ember.Component.extend({
+export default Em.Component.extend({
 	// defaults
 	classNameBindings: [':note-list-item', 'isSelected:selected'],
 	tagName: 'li',
@@ -9,17 +9,46 @@ export default Ember.Component.extend({
 	content: null,
 	selection: null,
 
+  // template helpers
+  showDeletePrompt: false,
+
 	// computed
 	isSelected: function() {
 		return this.get('content') === this.get('selection');
-	}.property('content.id', 'selection'), 
-	
+	}.property('content.id', 'selection'),
+
 	title: function() {
-		return Ember.isEmpty(this.get('content.body')) ? 'New...' : this.get('content.body').split('<p><br></p>')[0];
+		return Em.isEmpty(this.get('content.body')) ? 'New...' : this.get('content.body').split('<p><br></p>')[0];
 	}.property('content.body'),
 
-	// actions
+	// event handlers
 	click: function() {
-		this.sendAction('action', this.get('content'));
-	}
+		this.sendAction('onSelect', this.get('content'));
+	},
+
+  actions: {
+    promptDelete: function() {
+      this.set('showDeletePrompt', true);
+      // this.$('.hover-action').one('transitionend webkitTransitionEnd', function() {
+        // this.$('.confirm-action').removeClass('hidden');
+      // }.bind(this));
+    },
+
+    cancelDelete: function() {
+      this.set('showDeletePrompt', false);
+      // this.$('.hover-action').one('transitionend webkitTransitionEnd', function() {
+        // this.$('.confirm-action').addClass('hidden');
+      // }.bind(this));
+      // Em.run.scheduleOnce('afterRender', this, function() {
+      // });
+    },
+
+    confirmDelete: function() {
+      // send delete action
+      this.sendAction('onDelete', this.get('content'));
+
+      // then reset showDeletePrompt flag
+      this.set('showDeletePrompt', false);
+    }
+  }
 });

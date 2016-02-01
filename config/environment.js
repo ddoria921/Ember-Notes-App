@@ -4,10 +4,15 @@ module.exports = function(environment) {
   var ENV = {
     modulePrefix: 'ember-notes',
     environment: environment,
-    contentSecurityPolicy: { 
+    contentSecurityPolicy: {
+      'default-src': "'none'",
+      'script-src': "'self' 'unsafe-inline' 'unsafe-eval'",
       'font-src': "'self' data: fonts.gstatic.com",
+      'connect-src': "'self' https://api.github.com/ https://auth.firebase.com wss://*.firebaseio.com",
+      'img-src': "'self' https://avatars.githubusercontent.com",
+      'report-uri':"'localhost'",
       'style-src': "'self' 'unsafe-inline' fonts.googleapis.com",
-      'connect-src': "'self' https://auth.firebase.com wss://*.firebaseio.com" 
+      'frame-src': "'none'"
     },
     firebase: 'https://web-notes.firebaseio.com/',
     baseURL: '/',
