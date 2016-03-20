@@ -1,8 +1,8 @@
-<aside {{bind-attr class=":left-sidebar hideSidePanel:hide"}}>
+<aside class="left-sidebar {{if hideSidePanel "hide"}}">
   {{note-list notes=sortedNotes defaultSelection='first' selection=activeNote onSelect='showNote' onDelete='deleteNote'}}
 </aside>
 
-<section {{bind-attr class=":note-content :main-content hideSidePanel:full-screen"}}>
+<section class="note-content main-content {{if hideSidePanel "full-screen"}}">
   <header class="clearfix">
     <div class="left-actions">
       <button class="icon-button" {{action 'toggleSidePanelHidden'}}><iron-icon icon="list"></iron-icon></button>
