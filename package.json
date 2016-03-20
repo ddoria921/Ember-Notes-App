@@ -1,7 +1,7 @@
 {
   "name": "ember-notes",
-  "version": "0.0.0",
-  "main"    : "main.js",
+  "version": "0.0.1",
+  "main": "main.js",
   "description": "Small description for ember-notes goes here",
   "private": true,
   "directories": {
@@ -19,11 +19,15 @@
   },
   "author": "",
   "license": "MIT",
+  "dependencies": {
+    "ember-cli-medium-editor": "^1.0.4"
+  },
   "devDependencies": {
     "broccoli-asset-rev": "^2.1.2",
     "broccoli-merge-trees": "^1.1.1",
     "broccoli-static-compiler": "^0.2.2",
     "broccoli-vulcanize": "^2.0.3",
+    "electron": "^0.4.1",
     "electron-prebuilt": "^0.36.7",
     "ember-cli": "1.13.8",
     "ember-cli-app-version": "0.5.0",
@@ -39,12 +43,10 @@
     "ember-cli-sass": "5.2.1",
     "ember-cli-sri": "^1.0.3",
     "ember-cli-uglify": "^1.2.0",
+    "ember-concurrency": "0.5.17",
     "ember-data": "1.13.8",
     "ember-disable-proxy-controllers": "^1.0.0",
     "ember-export-application-global": "^1.0.3",
     "emberfire": "1.5.0"
-  },
-  "dependencies": {
-    "ember-cli-medium-editor": "^1.0.4"
   }
 }
