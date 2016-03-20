@@ -13,6 +13,9 @@ module.exports = function(defaults) {
           'app': '/assets/app.css'
         }
       }
+    },
+    babel: {
+      includePolyfill: true,
     }
   });
 
