@@ -2,11 +2,13 @@
  * note-list-item.scss
  */
 .note-list-item {
-	height: 90px;
-	padding: 10px 15px;
-	overflow: hidden;
-	color: $text-color;
+  height: 90px;
+  padding: 10px 15px;
+  overflow: hidden;
+  color: $text-color;
   position: relative;
+  background: $primary-color;
+  transition: background 0.15s ease-in;
 	&.selected {
 		background: $accent-color;
     .hover-action {
@@ -32,6 +34,8 @@
     // background-color: #5E6771;
     box-shadow: -10px 0px 10px $primary-color;
     // -webkit-transition: width 0.15s ease-in;
+    transition: background 0.15s ease-in, box-shadow 0.15s ease-in;
+
     button {
       opacity: 0.8;
     }
