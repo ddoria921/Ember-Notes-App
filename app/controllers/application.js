@@ -17,7 +17,7 @@ var applicationController = Em.Controller.extend({
     if (Em.isEmpty(this.get('model'))) {
       this.send('createNote');
     } else {
-      this.send('showNote', this.get('model.firstObject'));
+      this.send('showNote', this.get('sortedNotes.firstObject'));
     }
     yield note.destroyRecord();
   }).drop(),
