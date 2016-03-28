@@ -25,10 +25,13 @@ $text-editor-padding: 40px;
     margin-left: 0;
   }
   header {
+    position: fixed;
+    width: calc(100% - 300px);
+    background-color: $primary-color;
     .left-actions { float: left; }
     .right-actions { float: right; }
     .left-actions, .right-actions {
-      padding: 20px;
+      padding: 10px 20px;
       button {
         height: 40px;
         width: 40px;
@@ -36,9 +39,9 @@ $text-editor-padding: 40px;
     }
   }
   .inner-content {
-    height: 100%;
+    min-height: calc(100% - 60px);
     padding: 10px 40px 40px;
     max-width: 1150px;
-    margin: auto;
+    margin: 60px auto 0;
   }
 }
