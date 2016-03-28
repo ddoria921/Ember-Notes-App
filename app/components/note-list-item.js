@@ -29,18 +29,12 @@ export default Em.Component.extend({
   actions: {
     promptDelete: function() {
       this.set('showDeletePrompt', true);
-      // this.$('.hover-action').one('transitionend webkitTransitionEnd', function() {
-        // this.$('.confirm-action').removeClass('hidden');
-      // }.bind(this));
     },
 
     cancelDelete: function() {
-      this.set('showDeletePrompt', false);
-      // this.$('.hover-action').one('transitionend webkitTransitionEnd', function() {
-        // this.$('.confirm-action').addClass('hidden');
-      // }.bind(this));
-      // Em.run.scheduleOnce('afterRender', this, function() {
-      // });
+      Em.run.later(this, function() {
+        this.set('showDeletePrompt', false);
+      }, 150);
     },
 
     confirmDelete: function() {
