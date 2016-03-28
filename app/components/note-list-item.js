@@ -47,8 +47,7 @@ export default Em.Component.extend({
       // send delete action
       this.sendAction('onDelete', this.get('content'));
 
-      // then reset showDeletePrompt flag
-      this.set('showDeletePrompt', false);
+      // this.set('showDeletePrompt', false);
     }
   }
 });
