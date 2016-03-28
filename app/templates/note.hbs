@@ -1,8 +1,8 @@
-{{note-editor refresh=refreshEditorFlag isUserTyping=isTyping value=model.body options=editorOptions}}
+{{medium-content-editable value=model.body options=editorOptions}}
 
-{{#if isSaving}}
+{{#unless saveNote.isIdle}}
 	<div class="note-state"> <span>saving</span></div>
-{{/if}}
+{{/unless}}
 {{#if promptDelete}}
   <div class="confirm">
     <p>
