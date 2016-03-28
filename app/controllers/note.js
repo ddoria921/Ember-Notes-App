@@ -1,4 +1,5 @@
 import Ember from 'ember';
+import { task } from 'ember-concurrency';
 
 var noteController = Ember.Controller.extend({
 	refreshEditorFlag: false,
@@ -13,13 +14,21 @@ var noteController = Ember.Controller.extend({
 	}.observes('isTyping'),
 
   editorOptions: function() {
-    var options = {
+    return {
       buttons: ["bold", "italic"],
-      placeholder: 'New note...'
+      allowMultiParagraphSelection: true,
+      toolbar: false
     };
-
-    return JSON.stringify(options);
   }.property(),
+
+  saveNote: task(function *() {
+    if (this.get('model.isNew')) {
+      this.set('model.createdAt', new Date());
+    }
+
+    this.set('model.updatedAt', new Date());
+    yield this.get('model').save();
+  }).drop(),
 
 	actions: {
 		save: function() {
