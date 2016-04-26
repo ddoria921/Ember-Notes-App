@@ -6,6 +6,12 @@ var applicationController = Em.Controller.extend({
 
   hideSidePanel: false,
 
+  init: function() {
+    Em.run.scheduleOnce('afterRender', () => {
+      $('body div').first().addClass('app-container');
+    });
+  },
+
 	// data
 	sortedNotes: function() {
 		return this.get('model').sortBy('updatedAt', 'createdAt').reverseObjects();
