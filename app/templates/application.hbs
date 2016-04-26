@@ -7,11 +7,14 @@
     <div class="left-actions">
       <button class="icon-button" {{action 'toggleSidePanelHidden'}}><iron-icon icon="list"></iron-icon></button>
     </div>
+
     <div class="right-actions">
       <button class="icon-button" {{action 'createNote'}}><iron-icon icon="add"></iron-icon></button>
     </div>
   </header>
+
   <div class="inner-content">
     {{outlet}}
   </div>
+  
 </section>

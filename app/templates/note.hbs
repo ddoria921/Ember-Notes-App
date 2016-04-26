@@ -3,12 +3,3 @@
 {{#unless saveNote.isIdle}}
 	<div class="note-state"> <span>saving</span></div>
 {{/unless}}
-{{#if promptDelete}}
-  <div class="confirm">
-    <p>
-      Are you sure?
-    </p>
-    <button type="button" {{action 'confirmDelete'}}>YES</button>
-    <button type="button" {{action 'cancelDelete'}}>NO</button>
-  </div>
-{{/if}}
