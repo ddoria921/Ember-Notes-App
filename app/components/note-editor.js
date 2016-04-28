@@ -16,7 +16,8 @@ export default Ember.Component.extend({
   }).property('editable'),
 
   didInsertElement: function() {
-    new MediumEditor(this.$(), (this.get('options') ? JSON.parse(this.get('options')) : {}));
+    // new MediumEditor(this.$(), (this.get('options') ? JSON.parse(this.get('options')) : {}));
+    new MediumEditor(this.$(), this.get('options') || {});
     return this.setContent();
   },
 
@@ -26,8 +27,9 @@ export default Ember.Component.extend({
 
   userFinishedTypingTask: task(function * () {
     yield timeout(3000);
-    console.log('Setting user typing to false');
-
+    if (typeof this.attrs.onFinishedTyping === 'function') {
+      this.attrs.onFinishedTyping();
+    }
     this.set('isUserTyping', false);
   }).restartable(),
 
@@ -61,6 +63,12 @@ export default Ember.Component.extend({
       return this_m.$().html(this_m.get('value'));
     }
   },
+
+  valueDidChange: Ember.observer('value', function() {
+    if (this.$() && this.get('value') !== this.$().html()) {
+      this.setContent();
+    }
+  }),
 
   refreshObserver: function() {
     if (this.get('refresh')) {
