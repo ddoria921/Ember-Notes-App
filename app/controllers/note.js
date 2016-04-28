@@ -32,14 +32,15 @@ var noteController = Ember.Controller.extend({
 
 	actions: {
 		save: function() {
-			if (this.get('model.isNew')) {
-				this.set('model.createdAt', new Date());
-			}
-			this.set('isSaving', true);
-      this.set('model.updatedAt', new Date());
-      this.get('model').save().then(() => {
-				this.set('isSaving', false);
-			});
+      this.get('saveNote').perform();
+			// if (this.get('model.isNew')) {
+			// 	this.set('model.createdAt', new Date());
+			// }
+			// this.set('isSaving', true);
+      // this.set('model.updatedAt', new Date());
+      // this.get('model').save().then(() => {
+			// 	this.set('isSaving', false);
+			// });
 		},
 		refreshEditor: function() {
 			this.set('refreshEditorFlag', true);
