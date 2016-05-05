@@ -1,7 +1,7 @@
 var packager = require('electron-packager');
 var options = {
   arch: 'x64',
-  dir: './',
+  dir: '/Users/Darin/Development/Ember-Notes-App',
   platform: 'darwin'
 };
 

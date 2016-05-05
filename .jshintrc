@@ -28,7 +28,5 @@
   "white": false,
   "eqnull": true,
   "esnext": true,
-  "unused": true,
-  "node": true,
-  "jquery": true
+  "unused": true
 }
