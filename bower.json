@@ -22,7 +22,8 @@
     "iron-icons": "PolymerElements/iron-icons#^1.0.0",
     "paper-button": "PolymerElements/paper-button#^1.0.0",
     "paper-drawer-panel": "PolymerElements/paper-drawer-panel#^1.0.0",
-    "paper-fab": "PolymerElements/paper-fab#^1.0.0"
+    "paper-fab": "PolymerElements/paper-fab#^1.0.0",
+    "remodal": "1.0.7"
   },
   "resolutions": {
     "ember": "2.4",
