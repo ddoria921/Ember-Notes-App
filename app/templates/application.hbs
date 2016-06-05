@@ -1,20 +1,24 @@
-<aside class="left-sidebar {{if hideSidePanel "hide"}}">
-  {{note-list notes=sortedNotes defaultSelection='first' selection=activeNote onSelect='showNote' onDelete='deleteNote'}}
-</aside>
+{{#if session.isAuthenticated}}
+  <aside class="left-sidebar {{if hideSidePanel "hide"}}">
+    {{note-list notes=sortedNotes defaultSelection='first' selection=activeNote onSelect='showNote' onDelete='deleteNote'}}
+  </aside>
 
-<section class="note-content main-content {{if hideSidePanel "full-screen"}}">
-  <header class="clearfix">
-    <div class="left-actions">
-      <button class="icon-button" {{action 'toggleSidePanelHidden'}}><iron-icon icon="list"></iron-icon></button>
+  <section class="note-content main-content {{if hideSidePanel "full-screen"}}">
+    <header class="clearfix">
+      <div class="left-actions">
+        <button class="icon-button" {{action 'toggleSidePanelHidden'}}><iron-icon icon="list"></iron-icon></button>
+      </div>
+
+      <div class="right-actions">
+        <button class="icon-button" {{action 'createNote'}}><iron-icon icon="add"></iron-icon></button>
+      </div>
+    </header>
+
+    <div class="inner-content">
+      {{outlet}}
     </div>
 
-    <div class="right-actions">
-      <button class="icon-button" {{action 'createNote'}}><iron-icon icon="add"></iron-icon></button>
-    </div>
-  </header>
-
-  <div class="inner-content">
-    {{outlet}}
-  </div>
-  
-</section>
+  </section>
+{{else}}
+  {{outlet}}
+{{/if}}

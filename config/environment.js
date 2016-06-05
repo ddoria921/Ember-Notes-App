@@ -14,7 +14,10 @@ module.exports = function(environment) {
       'style-src': "'self' 'unsafe-inline' fonts.googleapis.com",
       'frame-src': "'none'"
     },
-    firebase: 'https://web-notes.firebaseio.com/',
+    // firebase: 'https://web-notes.firebaseio.com/',
+    torii: {
+      sessionServiceName: 'session'
+    },
     baseURL: '/',
     locationType: 'auto',
     EmberENV: {
@@ -31,6 +34,7 @@ module.exports = function(environment) {
   };
 
   if (environment === 'development') {
+    ENV.firebase = 'https://dev-web-notes.firebaseio.com/';
     // ENV.APP.LOG_RESOLVER = true;
     // ENV.APP.LOG_ACTIVE_GENERATION = true;
     // ENV.APP.LOG_TRANSITIONS = true;
@@ -51,7 +55,7 @@ module.exports = function(environment) {
   }
 
   if (environment === 'production') {
-
+    ENV.firebase = 'https://web-notes.firebaseio.com/';
   }
 
   return ENV;

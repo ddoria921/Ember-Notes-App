@@ -1,0 +1,20 @@
+<div class="signin-container">
+
+  <h1>Sign In</h1>
+
+  <label for="email">Email:</label>
+  {{input type="email" name="email" value=userEmail}}
+
+  <label for="password">Password:</label>
+  {{input type="password" name="password" value=userPassword}}
+
+  <button type="button" {{action 'signIn' userEmail userPassword}}>Sign In</button>
+
+  {{ember-remodal
+      openButton='Open Modal'
+      confirmButton='OK'
+      cancelButton='Cancel'
+      title='A Title!'
+      text='lorem ipsum dolar sit amet' }}
+
+</div>
