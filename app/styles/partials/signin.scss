@@ -1,3 +1,23 @@
 .signin-container {
-  
+  width: 300px;
+  margin: 0 0 0 -150px;
+  color: #FFFFFF;
+  position: absolute;
+  top: 30%;
+  left: 50%;
+  input {
+    text-align: center;
+  }
+
+  .submit {
+    display: block;
+    margin: auto;
+  }
+}
+
+.input-row {
+  input {
+    width: 100%;
+    padding: 10px;
+  }
 }

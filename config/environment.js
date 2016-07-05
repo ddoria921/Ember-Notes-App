@@ -18,6 +18,9 @@ module.exports = function(environment) {
     torii: {
       sessionServiceName: 'session'
     },
+    flashMessageDefaults: {
+      preventDuplicates: true
+    },
     baseURL: '/',
     locationType: 'auto',
     EmberENV: {
