@@ -1,5 +1,4 @@
-{{!-- {{medium-content-editable value=model.body options=editorOptions}} --}}
-{{note-editor value=model.body options=editorOptions onFinishedTyping=(action "save")}}
+{{medium-content-editable value=model.body options=editorOptions onFinishedTyping=(perform saveNote)}}
 
 {{#unless saveNote.isIdle}}
 	<div class="note-state"> <span>saving</span></div>
