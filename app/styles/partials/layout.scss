@@ -32,13 +32,29 @@ $text-editor-padding: 40px;
     width: calc(100% - 300px);
     background-color: $primary-color;
     -webkit-transition: width 0.2s ease-in;
-    .left-actions button { float: left; }
-    .right-actions button { float: right; }
+    .left-actions {
+      float: left;
+      button, paper-button {
+        float: left;
+      }
+    }
+    .right-actions {
+      float: right;
+      button, paper-button {
+        float: right;
+      }
+    }
     .left-actions, .right-actions {
       padding: 10px 20px;
       button {
         height: 40px;
         width: 40px;
+      }
+      paper-button {
+        height: 40px;
+        line-height: 40px;
+        padding: 0 12px;
+        color: white;
       }
     }
   }
