@@ -1,6 +1,8 @@
 import Em from 'ember';
 import { task, timeout } from 'ember-concurrency';
 
+const { computed } = Em;
+
 var applicationController = Em.Controller.extend({
 	activeNote: null,
 
@@ -13,9 +15,9 @@ var applicationController = Em.Controller.extend({
   },
 
 	// data
-	sortedNotes: function() {
+	sortedNotes: computed('model.[]', 'model.@each.updatedAt', function() {
 		return this.get('model').sortBy('updatedAt', 'createdAt').reverseObjects();
-	}.property('model.[]', 'model.@each.updatedAt'),
+	}),
 
   deleteNoteTask: task(function *(note) {
     yield timeout(150);
