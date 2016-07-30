@@ -13,6 +13,11 @@ export default Ember.Controller.extend({
   userEmail: '',
   userPassword: '',
 
+  resetController() {
+    this.set('userEmail', '');
+    this.set('userPassword', '');
+  },
+
   canSubmit: computed('userEmail', 'userPassword', function() {
     return isPresent(this.get('userEmail')) && isPresent(this.get('userPassword'));
   }),

@@ -5,5 +5,11 @@ export default Ember.Route.extend({
     if (this.get('session.isAuthenticated')) {
       this.transitionTo('/');
     }
+  },
+
+  resetController(controller, isExiting) {
+    if (isExiting) {
+      controller.resetController();
+    }
   }
 });
