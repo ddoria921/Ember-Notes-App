@@ -31,7 +31,7 @@ export default Ember.Controller.extend({
       password: password
     }).then((data) => {
       console.log('Signed in as ', data.currentUser);
-      this.transitionTo('application');
+      this.transitionToRoute('application');
     }).catch(() => {
       flashMessages.danger('Incorrect email and password. Try again.', {
         preventDuplicates: true
