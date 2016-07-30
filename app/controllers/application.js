@@ -19,7 +19,7 @@ var applicationController = Em.Controller.extend({
 		return this.get('model').sortBy('updatedAt', 'createdAt').reverseObjects();
 	}),
 
-  deleteNoteTask: task(function *(note) {
+  deleteNote: task(function *(note) {
     yield timeout(150);
     this.get('model').removeObject(note);
     if (Em.isEmpty(this.get('model'))) {
@@ -31,28 +31,21 @@ var applicationController = Em.Controller.extend({
   }).drop(),
 
 	actions: {
-    createNote: function() {
+    createNote() {
       this.transitionToRoute('new');
     },
 
-    deleteNote: function(note) {
-      this.get('deleteNoteTask').perform(note);
-      // this.get('model').removeObject(note);
-      // if (Em.isEmpty(this.get('model'))) {
-      //   this.send('createNote');
-      // } else {
-      //   this.send('showNote', this.get('model.lastObject'));
-      // }
-      // note.destroyRecord();
+    deleteNote(note) {
+      this.get('deleteNote').perform(note);
     },
 
-		// deleteAll: function() {
-		// 	this.get('notes').forEach(function(note) {
-		// 		note.destroyRecord();
-		// 	});
-		// },
+    signOut() {
+      this.get('session').close().then(()=> {
+        this.transitionToRoute('signin');
+      });
+    },
 
-    toggleSidePanelHidden: function() {
+    toggleSidePanelHidden() {
       this.toggleProperty('hideSidePanel');
     }
 	}
