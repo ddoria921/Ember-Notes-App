@@ -3,7 +3,7 @@ import Ember from 'ember';
 export default Ember.Route.extend({
   model() {
     return this.store.createRecord('note', {
-      body: '> new note...',
+      body: '',
       createdAt: new Date(),
       updatedAt: new Date()
     }).save();
