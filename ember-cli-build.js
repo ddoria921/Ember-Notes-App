@@ -16,8 +16,7 @@ module.exports = function(defaults) {
     },
     babel: {
       includePolyfill: true,
-    },
-    tests: false
+    }
   });
 
   var polymerVulcanize = vulcanize('app', {
