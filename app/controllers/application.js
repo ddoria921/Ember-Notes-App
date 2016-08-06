@@ -10,7 +10,7 @@ var applicationController = Em.Controller.extend({
 
   init: function() {
     Em.run.scheduleOnce('afterRender', () => {
-      $('body div').first().addClass('app-container');
+      Em.$('body div').first().addClass('app-container');
     });
   },
 
