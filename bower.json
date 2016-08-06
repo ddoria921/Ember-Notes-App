@@ -1,7 +1,7 @@
 {
   "name": "ember-notes",
   "dependencies": {
-    "ember": "2.4.5",
+    "ember": "2.7.0",
     "ember-cli-shims": "0.1.0",
     "ember-cli-test-loader": "0.2.2",
     "ember-load-initializers": "ember-cli/ember-load-initializers#0.1.5",
@@ -25,9 +25,10 @@
     "remodal": "1.0.7"
   },
   "resolutions": {
-    "ember": "2.4",
+    "ember": "~2.7.0",
+    "ember-cli-shims": "0.1.1",
+    "ember-qunit-notifications": "0.1.0",
     "ember-data": "2.4",
-    "qunit-notifications": "~0.1.0",
     "medium-editor": "5.14.4"
   }
 }
