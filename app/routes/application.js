@@ -1,32 +1,30 @@
-import Em from 'ember';
+import Ember from 'ember';
 
-var applicationRoute = Em.Route.extend({
+const {
+  Logger,
+  run
+} = Ember;
+
+export default Ember.Route.extend({
   beforeModel() {
-    console.log('Before model app route');
     return this.get("session").fetch().catch((error) => {
-      console.log(error);
+      Logger.error('User not authenticated. Redirecting to sign in. Error:', error);
       this.transitionTo('signin');
     });
   },
 
-  model() {
-		return this.store.findAll('note');
-	},
+  redirect() {
+    run.next(this, () => {
+      const appController = this.controllerFor('application');
+      if (appController.get('currentPath') === 'index') {
+        this.transitionTo('notes');
+      }
+    });
+  },
 
-	actions: {
-		feedMe() {
-			this.refresh();
-		},
-
-		showNote(note) {
-			this.transitionTo('note', note.get('id'));
-      this.controller.set('activeNote', note);
-		},
-
+  actions: {
     signOut() {
       this.get("session").close();
     }
-	}
+  }
 });
-
-export default applicationRoute;

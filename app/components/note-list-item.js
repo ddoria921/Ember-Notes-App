@@ -1,47 +1,35 @@
-import Em from 'ember';
+import Ember from 'ember';
 
-export default Em.Component.extend({
-	// defaults
-	classNameBindings: [':note-list-item', 'isSelected:selected'],
-	tagName: 'li',
+const {
+  isEmpty,
+  computed,
+  run
+} = Ember;
 
-	// properties
-	content: null,
-	selection: null,
+export default Ember.Component.extend({
+  classNames: ['note-list-item'],
+
+  // properties
+  content: null,
 
   // template helpers
   showDeletePrompt: false,
 
-	// computed
-	isSelected: function() {
-		return this.get('content') === this.get('selection');
-	}.property('content.id', 'selection'),
-
-	title: function() {
-		return Em.isEmpty(this.get('content.body')) ? 'New...' : this.get('content.body').split('<p><br></p>')[0];
-	}.property('content.body'),
-
-	// event handlers
-	click: function() {
-		this.sendAction('onSelect', this.get('content'));
-	},
+  // computed
+  title: computed('content.body', function() {
+    return isEmpty(this.get('content.body')) ? 'New...' : this.get('content.body').split('<p><br></p>')[0];
+  }),
 
   actions: {
-    promptDelete: function() {
+    promptDelete() {
       this.set('showDeletePrompt', true);
     },
 
-    cancelDelete: function() {
-      Em.run.later(this, function() {
+    cancelDelete() {
+      // run later so animation can finish
+      run.later(this, function() {
         this.set('showDeletePrompt', false);
       }, 150);
-    },
-
-    confirmDelete: function() {
-      // send delete action
-      this.sendAction('onDelete', this.get('content'));
-
-      // this.set('showDeletePrompt', false);
     }
   }
 });

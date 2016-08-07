@@ -5,22 +5,16 @@
   height: 90px;
   padding: 10px 15px;
   overflow: hidden;
-  color: $text-color;
+  color: var(--text-color);
   position: relative;
-  background: $primary-color;
+  background-color: var(--primary-color);
   transition: background 0.15s ease-in;
-	&.selected {
-		background: $accent-color;
-    .hover-action {
-      background-color: $accent-color;
-      box-shadow: -10px 0px 10px $accent-color;
-    }
-	}
-	.title {
-		height: 60px;
-		overflow: hidden;
-		line-height: 20px;
-	}
+  box-sizing: border-box;
+  .title {
+    height: 60px;
+    overflow: hidden;
+    line-height: 20px;
+  }
   .hover-action {
     display: none;
     align-items: center;
@@ -30,16 +24,14 @@
     position: absolute;
     top: 0;
     right: 0;
-    background-color: $primary-color;
+    background-color: var(--primary-color);
     // background-color: #5E6771;
-    box-shadow: -10px 0px 10px $primary-color;
+    box-shadow: -10px 0px 10px var(--primary-color);
     // -webkit-transition: width 0.15s ease-in;
     transition: background 0.15s ease-in, box-shadow 0.15s ease-in;
-
     button {
       opacity: 0.8;
     }
-
     &.focus-action {
       width: 100%;
       display: inline-flex;
@@ -51,3 +43,27 @@
     }
   }
 }
+
+a.note-list-item-link {
+  display: block;
+  &.active, &:focus {
+    .note-list-item {
+      background-color: var(--accent-color);
+      .hover-action {
+        background-color: var(--accent-color);
+        box-shadow: -10px 0px 10px var(--accent-color);
+      }
+    }
+  }
+  &:focus {
+    outline: none;
+    .note-list-item {
+      // border-right: 2px solid var(--primary-color);
+    }
+  }
+  &:link {
+    text-decoration: none;
+  }
+}
+
+

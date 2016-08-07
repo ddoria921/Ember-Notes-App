@@ -7,6 +7,6 @@
 
   <div class="confirm-action {{unless showDeletePrompt "hidden"}}">
     <paper-button {{ action 'cancelDelete' bubbles=false }}>Cancel</paper-button>
-    <paper-button {{ action 'confirmDelete' bubbles=false }}>Delete</paper-button>
+    <paper-button {{ action onDelete bubbles=false }}>Delete</paper-button>
   </div>
 </div>
