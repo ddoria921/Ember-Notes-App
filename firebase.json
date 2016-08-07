@@ -9,5 +9,6 @@
   "rewrites": [{
     "source": "**",
     "destination": "/index.html"
-  }]
+  }],
+  "rules": "config/security-rules.json"
 }
