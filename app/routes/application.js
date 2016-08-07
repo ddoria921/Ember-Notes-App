@@ -8,7 +8,7 @@ const {
 export default Ember.Route.extend({
   beforeModel() {
     return this.get("session").fetch().catch((error) => {
-      Logger.error('User not authenticated. Redirecting to sign in. Error:', error);
+      Logger.debug('User not authenticated – redirecting to sign in. Error:', error);
       this.transitionTo('signin');
     });
   },
