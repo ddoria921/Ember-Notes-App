@@ -21,7 +21,7 @@ module.exports = function(environment) {
     flashMessageDefaults: {
       preventDuplicates: true
     },
-    baseURL: '/',
+    rootURL: '/',
     locationType: 'auto',
     EmberENV: {
       FEATURES: {
