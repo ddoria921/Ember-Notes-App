@@ -5,7 +5,8 @@ const {
   get,
   computed,
   isPresent,
-  inject
+  inject,
+  Logger
 } = Ember;
 
 export default Ember.Controller.extend({
@@ -31,8 +32,8 @@ export default Ember.Controller.extend({
       email: email,
       password: password
     }).then((data) => {
-      console.log('Signed in as ', data.currentUser);
-      this.transitionToRoute('application');
+      Logger.debug('Signed in as ', data.currentUser);
+      this.transitionToRoute('notes');
     }).catch(() => {
       flashMessages.danger('Incorrect email and password. Try again.', {
         preventDuplicates: true
