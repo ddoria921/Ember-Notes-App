@@ -8,10 +8,16 @@
   </div>
 
   <div class="input-row">
-    {{input type="password" name="password" value=userPassword placeholder="password"}}
+    {{input
+      type="password"
+      name="password"
+      value=userPassword
+      placeholder="password"
+      action=(perform signIn userEmail userPassword)
+      on="enter" }}
   </div>
 
-  <paper-button class="submit" onclick={{ perform signIn userEmail userPassword }}>
+  <paper-button class="submit" onclick={{perform signIn userEmail userPassword}}>
     {{#if signIn.isRunning}}
       Loading
     {{else}}
