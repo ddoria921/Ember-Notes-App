@@ -1,0 +1,24 @@
+<aside class="left-sidebar {{if hideSidePanel "hide"}}">
+  {{#note-list notes=model as |note|}}
+    {{#link-to "notes.note" note}}
+      {{note-list-item content=note onDelete=(perform deleteNote note)}}
+    {{/link-to}}
+  {{/note-list}}
+</aside>
+
+<section class="note-content main-content {{if hideSidePanel "full-screen"}}">
+  <header class="clearfix">
+    <div class="left-actions">
+      <button class="icon-button" {{action 'toggleSidePanelHidden'}}><iron-icon icon="view-list"></iron-icon></button>
+      <paper-button class="icon-button" {{action 'signOut'}}>Sign Out</paper-button>
+    </div>
+
+    <div class="right-actions">
+      {{#link-to "notes.new" class="icon-button"}}<iron-icon icon="add"></iron-icon>{{/link-to}}
+    </div>
+  </header>
+
+  <div class="inner-content">
+    {{outlet}}
+  </div>
+</section>

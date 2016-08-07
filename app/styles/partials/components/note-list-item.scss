@@ -9,18 +9,11 @@
   position: relative;
   background: $primary-color;
   transition: background 0.15s ease-in;
-	&.selected {
-		background: $accent-color;
-    .hover-action {
-      background-color: $accent-color;
-      box-shadow: -10px 0px 10px $accent-color;
-    }
-	}
-	.title {
-		height: 60px;
-		overflow: hidden;
-		line-height: 20px;
-	}
+  .title {
+    height: 60px;
+    overflow: hidden;
+    line-height: 20px;
+  }
   .hover-action {
     display: none;
     align-items: center;
@@ -35,11 +28,9 @@
     box-shadow: -10px 0px 10px $primary-color;
     // -webkit-transition: width 0.15s ease-in;
     transition: background 0.15s ease-in, box-shadow 0.15s ease-in;
-
     button {
       opacity: 0.8;
     }
-
     &.focus-action {
       width: 100%;
       display: inline-flex;
@@ -49,5 +40,13 @@
     .hover-action {
       display: inline-flex;
     }
+  }
+}
+
+.active .note-list-item {
+  background: $accent-color;
+  .hover-action {
+    background-color: $accent-color;
+    box-shadow: -10px 0px 10px $accent-color;
   }
 }

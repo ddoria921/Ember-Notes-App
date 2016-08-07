@@ -1,32 +1,16 @@
 import Em from 'ember';
 
-var applicationRoute = Em.Route.extend({
+export default Em.Route.extend({
   beforeModel() {
-    console.log('Before model app route');
     return this.get("session").fetch().catch((error) => {
-      console.log(error);
+      Em.Logger.error('User not authenticated. Redirecting to sign in. Error:', error);
       this.transitionTo('signin');
     });
   },
 
-  model() {
-		return this.store.findAll('note');
-	},
-
-	actions: {
-		feedMe() {
-			this.refresh();
-		},
-
-		showNote(note) {
-			this.transitionTo('note', note.get('id'));
-      this.controller.set('activeNote', note);
-		},
-
+  actions: {
     signOut() {
       this.get("session").close();
     }
-	}
+  }
 });
-
-export default applicationRoute;

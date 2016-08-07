@@ -4,11 +4,12 @@ import { task } from 'ember-concurrency';
 const {
   get,
   computed,
-  isPresent
+  isPresent,
+  inject
 } = Ember;
 
 export default Ember.Controller.extend({
-  flashMessages: Ember.inject.service(),
+  flashMessages: inject.service(),
 
   userEmail: '',
   userPassword: '',

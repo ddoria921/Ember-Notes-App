@@ -1,3 +1,7 @@
 {{#each notes as |note|}}
-	{{note-list-item content=note selection=selection onSelect='selectNote' onDelete='deleteNote'}}
+  {{#if hasBlock}}
+    <li>{{yield note}}</li>
+  {{else}}
+    <li>{{#link-to "notes.note" note}}{{note-list-item content=note}}{{/link-to}}</li>
+  {{/if}}
 {{/each}}
