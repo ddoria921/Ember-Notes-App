@@ -17,6 +17,8 @@ $text-editor-padding: 40px;
 }
 
 .main-content {
+  position: absolute;
+  width: calc(100% - #{$side-panel-width});
   height: 100%;
   margin-left: $side-panel-width;
   overflow: auto;
@@ -29,8 +31,8 @@ $text-editor-padding: 40px;
   }
   header {
     position: fixed;
-    width: calc(100% - 300px);
-    background-color: $primary-color;
+    width: calc(100% - #{$side-panel-width});
+    // background-color: $primary-color;
     -webkit-transition: width 0.2s ease-in;
     .left-actions {
       float: left;
@@ -54,14 +56,14 @@ $text-editor-padding: 40px;
         height: 40px;
         line-height: 40px;
         padding: 0 12px;
-        color: white;
+        color: var(--button-color);
       }
     }
   }
   .inner-content {
     height: calc(100% - 60px);
-    padding: 10px 40px 40px;
+    padding: 10px 40px 0;
     max-width: 1150px;
-    margin: 60px auto 0;
+    margin: 60px auto 20px;
   }
 }

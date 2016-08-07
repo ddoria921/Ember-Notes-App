@@ -1,7 +1,7 @@
 .icon-button {
   @extend %blank-button;
   iron-icon  {
-    fill: white;
+    fill: var(--icon-color);
   }
   &.small {
     iron-icon  {

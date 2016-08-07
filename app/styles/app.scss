@@ -9,6 +9,7 @@
 @import "partials/layout";
 @import "partials/signin";
 @import "partials/components/note-list-item";
+@import "partials/components/note-list";
 @import "partials/components/alerts";
 
 /*
@@ -16,25 +17,24 @@
  */
 .app-container {
   height: 100%;
-  background: $primary-color;
-}
-
-/*
- * note-list.scss
- */
-.note-list {
-	height: 100%;
-	box-shadow: 5px 0px 10px -6px #212121;
+  background: var(--primary-color);
 }
 
 /*
  * note content
  */
- .note-content {
- 	position: relative;
+ .note-container {
+  background-color: var(--accent-color);
+  header {
+    background-color: var(--accent-color);
+    box-shadow: -10px 10px 10px var(--accent-color);
+  }
+  // .note-editor {
+  //   margin-bottom: 40px;
+  // }
  	.inner-content .editable {
  		height: 100%;
- 		color: $text-color;
+ 		color: var(--text-color);
     overflow-y: scroll;
     p {
       line-height: 25px;
@@ -47,14 +47,14 @@
  		position: absolute;
  		top: 20px;
  		right: 20px;
- 		color: $text-color;
+ 		color: var(--text-color);
  		font-size: 28px;
  	}
   .delete {
     position: absolute;
     top: 29px;
     right: 46px;
-    color: $text-color;
+    color: var(--text-color);
     font-size: 14px;
   }
  	.note-state {
