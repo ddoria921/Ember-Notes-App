@@ -13,8 +13,7 @@
       name="password"
       value=userPassword
       placeholder="password"
-      action=(perform signIn userEmail userPassword)
-      on="enter" }}
+      enter=(perform signIn userEmail userPassword) }}
   </div>
 
   <paper-button class="submit" onclick={{perform signIn userEmail userPassword}}>
